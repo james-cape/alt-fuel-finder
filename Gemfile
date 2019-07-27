@@ -15,11 +15,13 @@ gem 'figaro'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'pry'
 end
 
 group :development do
   gem 'web-console', '~> 3.5.1'
   gem 'listen'
+  gem 'launchy'
 end
 
 group :test do
@@ -27,4 +29,3 @@ group :test do
   gem 'webmock'
   gem 'capybara'
 end
-
