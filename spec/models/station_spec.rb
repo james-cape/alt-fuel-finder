@@ -2,38 +2,40 @@ require 'rails_helper'
 
 describe Station do
   it "has attributes" do
-    attributes = {
-      zip: 80204,
-      limit: 6,
-      access: 'public',
-      radius: 4,
-      fuel_type: 'ELEC'
+    data = {
+      station_name: 'corner store',
+      street_address: '18th market',
+      city: 'Denver',
+      state: 'CO',
+      zip: '88888',
+      fuel_type_code: 'ELEC',
+      access_days_time: 'till noon'
     }
 
-    station = Station.new(attributes)
+    station = Station.new(data)
 
-    expect(station.zip).to eq(80204)
-    expect(station.limit).to eq(6)
-    expect(station.access).to eq('public')
-    expect(station.radius).to eq(4)
+    expect(station.name).to eq('corner store')
+    expect(station.address).to eq('18th market, Denver, CO, 88888')
     expect(station.fuel_type).to eq('ELEC')
+    expect(station.access_times).to eq('till noon')
   end
 
   it "has different attributes" do
-    attributes = {
-      zip: 44324,
-      limit: 9,
-      access: 'private',
-      radius: 15,
-      fuel_type: 'LPG'
+    data = {
+      station_name: 'school',
+      street_address: 'colorado',
+      city: 'Springs',
+      state: 'AC',
+      zip: '89988',
+      fuel_type_code: 'LPG',
+      access_days_time: 'after 10'
     }
 
-    station = Station.new(attributes)
+    station = Station.new(data)
 
-    expect(station.zip).to eq(44324)
-    expect(station.limit).to eq(9)
-    expect(station.access).to eq('private')
-    expect(station.radius).to eq(15)
+    expect(station.name).to eq('school')
+    expect(station.address).to eq('colorado, Springs, AC, 89988')
     expect(station.fuel_type).to eq('LPG')
+    expect(station.access_times).to eq('after 10')
   end
 end
