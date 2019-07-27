@@ -43,7 +43,6 @@ feature "User can visit root page" do
       expect(page).to_not have_content('E85')
       expect(page).to_not have_content('HY')
       expect(page).to_not have_content('LNG')
-      save_and_open_page
     end
   end
 end
