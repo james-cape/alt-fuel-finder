@@ -20,8 +20,8 @@ class StationSearchResultsFacade
   end
 
   def stations
-    response = Faraday.get("https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=#{ENV['api_key']}&location=#{@zip}&fuel_type=#{@fuel_type}&limit=#{@limit}&radius=#{@radius}&access=#{@access}")
-    stations = JSON.parse(response.body, symbolize_names: true)[:fuel_stations]
+    service = StationService.new
+    stations = service.get_results(@zip, @limit, @radius, @fuel_type, @access)[:fuel_stations]
     stations.map do |data|
       Station.new(data)
     end
