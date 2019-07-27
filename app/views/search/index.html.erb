@@ -1,0 +1,19 @@
+<section id='total-results'>
+  <h1>There were <%= facade.total_results %> stations that met your search.</h1>
+</section>
+
+<section id='closest-stations'>
+  <% counter = 1 %>
+
+  <% facade.stations.each do |station| %>
+    <section id="station-<%= counter %>">
+      <h2>Station <%= counter %></h2>
+      <li>Station Name: <%= station.name %></li>
+      <li>Station Address: <%= station.address %></li>
+      <li>Station Fuel Type: <%= station.fuel_type %></li>
+      <li>Station Distance: <%= station.distance %> Miles</li>
+      <li>Station Access Times: <%= station.access_times %></li>
+      <% counter += 1 %><br>
+    </section>
+  <% end %>
+</section>
